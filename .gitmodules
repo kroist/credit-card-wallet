@@ -1,0 +1,3 @@
+[submodule "flashcall-module-erc-7579"]
+	path = flashcall-module-erc-7579
+	url = https://github.com/kroist/flashcall-module-erc-7579.git
