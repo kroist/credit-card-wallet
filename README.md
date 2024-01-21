@@ -1,4 +1,4 @@
-# Credit Card DeWallet
+# DeCredit Wallet
 
 ## Motivation
 
