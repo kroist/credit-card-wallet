@@ -1,6 +1,6 @@
 # DeCredit Wallet
 
-ERC-4337 compatible Wallet, acting like a credit card.
+ERC-4337 compatible wallet works like a credit card for any GHO transaction. You don't need to have any GHO on the balance to perform operations with it, just make sure to pay off your credit later!
 
 For any outcoming transaction that involves GHO if user's token balance is not enough, the module will modify this transaction to perform:
 - flashmint of a specific amount of GHO
@@ -23,7 +23,7 @@ One might propose simulation the transaction on-chain before the actual call, wh
 
 ![image_info](./media/lend_flow.png)
 
-In a signle transaction, account might `flashLoan` the amount of token, which would be enough for any reasonable transaction execution.
+In a single transaction, account might `flashLoan` the amount of token, which would be enough for any reasonable transaction execution.
 
 In order to return the flashloan, the long-term borrow of token from Lending Pool will occur.
 
@@ -36,7 +36,7 @@ We implement ERC-7579-compatible module smart contract, which expands ERC-4337 s
 
 To execute a transaction, user should get tokens from `IERC3156FlashLender`, and pass the required token gated action to the calldata argument.
 
-Our ERC-7579-module handles callbacks from `IERC3156FlashLender`. In a callback, token gated action is executed, tokens are borrowed from `IAavePool`, and tokens are returned to `IERC3156FlashLender`.
+Our ERC-7579-module handles callbacks from `IERC3156FlashLender`. In a callback, token gated action is executed, tokens needed for repay are borrowed from `IAavePool`, and tokens are returned to `IERC3156FlashLender`.
 
 We also have modified a frontend wallet for ERC-4337 wallet, making it capable of:
 
